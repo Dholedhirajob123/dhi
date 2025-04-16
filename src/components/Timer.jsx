@@ -12,13 +12,13 @@ function Timer() {
             Events Date  27 & 28 March 2024
           </span>
           <span className='text-lg hidden lg:block  lg:text-4xl lg:w-[400px] w-auto font-bold'>
-          Springdale Public School <br />
+          Viswa Public School <br />
           Annual Science Exhibition
           </span>
         </div>
-        <div className='flex justify-start items-center'>
+        {/* <div className='flex justify-start items-center'>
             <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F806786569%2F1633184430263%2F1%2Foriginal.20240712-162331?w=600&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C396%2C1600%2C800&s=6128b1650e792e3efa97a87aebe9c22f" alt="logo" className='w-[300px]'/>
-        </div>
+        </div> */}
       </div>
 
     </div>

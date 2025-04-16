@@ -8,7 +8,7 @@ import Main1 from './components/Main1';
 import Main2 from './components/Main2';
 import Marquee from './components/Marquee';
 import Navbar from './components/Navbar';
-import Checkout from './components/Checkout';
+// import Checkout from './components/Checkout';
 import Main3 from './components/Main3';
 import Footer from './components/Footer';
 import About from './components/Faculty';
@@ -47,11 +47,11 @@ function App() {
             element={
               <div>
                 <Coursoul />
-                <Marquee text={`"Welcome to Springdale Public School, where we nurture young minds for a brighter future."`} />
+                <Marquee text={`"Welcome to Viswa Public School, where we nurture young minds for a brighter future."`} />
                 <Timer />
                 <Marquee text={`"Join us for our Annual Science Exhibition, where students showcase innovative science projects and experiments."`} />
                 <Main2 />
-                <Checkout />
+                {/* <Checkout /> */}
                 <Main1 />
                 <Main3 />
               </div>
@@ -65,7 +65,7 @@ function App() {
               <>
                 <Faculty />
                 <Main2 />
-                <Checkout />
+                {/* <Checkout /> */}
                 <Main3 />
               </>
             }
@@ -78,7 +78,7 @@ function App() {
               <>
                 <Students />
                 <Main2 />
-                <Checkout />
+                {/* <Checkout /> */}
                 <Main3 />
               </>
             }
@@ -91,7 +91,7 @@ function App() {
               <>
                 <Campus />
                 <Main2 />
-                <Checkout />
+                {/* <Checkout /> */}
                 <Main1 />
                 <Main3 />
               </>
@@ -105,7 +105,7 @@ function App() {
               <>
                 <Events />
                 <Main2 />
-                <Checkout />
+                {/* <Checkout /> */}
                 <Main1 />
                 <Main3 />
               </>
@@ -119,7 +119,7 @@ function App() {
               <>
                 <Curriculum />
                 <Main2 />
-                <Checkout />
+                {/* <Checkout /> */}
                 <Main3 />
               </>
             }
@@ -132,7 +132,7 @@ function App() {
               <>
                 <Moto />
                 <Main2 />
-                <Checkout />
+                {/* <Checkout /> */}
                 <Main3 />
               </>
             }
@@ -145,7 +145,7 @@ function App() {
               <>
                 <College />
                 <Main2 />
-                <Checkout />
+                {/* <Checkout /> */}
                 <Main1 />
                 <Main3 />
               </>
@@ -159,7 +159,7 @@ function App() {
               <>
                 <Contact />
                 <Main2 />
-                <Checkout />
+                {/* <Checkout /> */}
                 <Main3 />
               </>
             }

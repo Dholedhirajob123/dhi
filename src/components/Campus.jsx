@@ -2,6 +2,7 @@ import { Cancel } from '@mui/icons-material';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 
+
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 Modal.setAppElement('#root');
@@ -12,17 +13,24 @@ const Campus = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const campusImages = [
-    'https://upload.wikimedia.org/wikipedia/commons/a/a7/Springdale_High_School%2C_Arkansas.JPG',
-    'https://wehco.media.clients.ellingtoncms.com/img/photos/2015/09/09/72682081_Springdale-High-File_t800.jpg?90232451fbcadccc64a17de7521d859a8f88077d',
-    'https://media.tegna-media.com/assets/KFSM/images/39096167-e937-4126-a551-0e539a9e975b/39096167-e937-4126-a551-0e539a9e975b_1920x1080.jpg',
-    'https://har-bernhs.weebly.com/uploads/2/6/5/7/26574828/261266692.jpg',
-    'https://cmsv2-assets.apptegy.net/uploads/2600/file/206293/3c262193-675a-4505-a71d-77fc6762c718.jpeg',
-    'https://springdaleeducation.com/wp-content/uploads/2022/11/INFRASTRUCTURE-1.jpg',
+//  '../assets/pic1.jpg'
+//  '../assets/pic1.jpg'
+//  '../assets/pic1.jpg'
+//  '../assets/pic1.jpg'
+//  '../assets/pic1.jpg'
+//  '../assets/pic1.jpg'
+//  '../assets/pic1.jpg'
+//  '../assets/pic1.jpg'
+//  '../assets/pic1.jpg'
+//  '../assets/pic1.jpg'
+//  '../assets/pic1.jpg'
+ 'school-website-Task/src/assets/aaron-burden-QJDzYT_K8Xg-unsplash.jpg',
   ];
 
   const campusVideos = [
-    'https://www.youtube.com/embed/FUSJkqaHgYk?si=Nv40Vzc_Y4gA_7aO',
-    'https://www.youtube.com/embed/SxoVEOt_muA?si=J72T9TXqAzM9Ob6P',
+    'https://youtu.be/xziV_K45jZs?si=3P_Dc8X5AmlT6DlS',
+    'https://www.youtube.com/NA_QWOC4wNk?si=B5zzR4kuhZmN4jPi',
+    'https://www.youtube.com/NA_QWOC4wNk?si=B5zzR4kuhZmN4jPi',
   ];
 
   const openImageModal = (imageUrl, index) => {

@@ -16,10 +16,10 @@ function Main2() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="lg:text-light mt-5 flex flex-col justify-center">
             <span className='text-info'>You need to know..</span>
-            <h1 className='font-bold text-3xl lg:text-5xl mb-4 text-white'>About Springdale</h1>
+            <h1 className='font-bold text-3xl lg:text-5xl mb-4 text-white'>About Viswa</h1>
             <p className='text-white text-lg lg:text-xl'>
               
-              Springdale Public School, founded in 1985, is dedicated to providing quality education and holistic development. The school emphasizes academic excellence, critical thinking, and ethical values. It boasts modern infrastructure, including advanced science labs, spacious classrooms, a well-stocked library, and comprehensive sports facilities. Springdale aims to empower students with knowledge and skills for a successful future.
+            Viswa Public School, founded in 2022, is dedicated to providing quality education and holistic development. The school emphasizes academic excellence, critical thinking, and ethical values. It boasts modern infrastructure, including advanced science labs, spacious classrooms, a well-stocked library, and comprehensive sports facilities. Springdale aims to empower students with knowledge and skills for a successful future.
             </p>
             <button className="bg-primary p-2 lg:px-6 lg:py-3 rounded-lg text-lg font-bold mt-5 text-light" onClick={downloadBroucher}>
               Download Brochure

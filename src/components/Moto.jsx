@@ -32,7 +32,7 @@ const Moto = () => {
         <div className="bg-white rounded-xl shadow-xl p-8">
           <h2 className="text-3xl font-bold mb-6 text-blue-800 text-center">Our Mission</h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            At <span className="font-semibold text-blue-700">Springdale Public School</span>, our mission is to cultivate a nurturing and inclusive environment where every student is empowered to reach their full potential. We are committed to providing a holistic education that fosters academic excellence, critical thinking, creativity, and personal growth. Through a balanced approach to learning, we aim to equip our students with the skills and values necessary to become compassionate, responsible, and successful global citizens.
+            At <span className="font-semibold text-blue-700">Viswa Public School</span>, our mission is to cultivate a nurturing and inclusive environment where every student is empowered to reach their full potential. We are committed to providing a holistic education that fosters academic excellence, critical thinking, creativity, and personal growth. Through a balanced approach to learning, we aim to equip our students with the skills and values necessary to become compassionate, responsible, and successful global citizens.
           </p>
         </div>
       </div>

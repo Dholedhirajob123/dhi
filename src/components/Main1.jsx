@@ -24,7 +24,7 @@ function Main1() {
           </div>
           <p className='mt-4 text-justify text-lg'>
             Dear Sir/Madam, <br />
-            "Welcome to Springdale Public School, where we are dedicated to nurturing young minds and shaping future leaders. At Springdale, we believe in fostering an environment that encourages academic excellence, creativity, and holistic development. Our commitment to quality education and student well-being is reflected in our state-of-the-art facilities and our dedicated faculty. We strive to create a learning experience that empowers students to reach their full potential and excel in all aspects of life. I invite you to explore our website and learn more about our vibrant school community. Together, let’s work towards a brighter future for every student."
+            "Welcome to Viswa Public School, where we are dedicated to nurturing young minds and shaping future leaders. At Viswa, we believe in fostering an environment that encourages academic excellence, creativity, and holistic development. Our commitment to quality education and student well-being is reflected in our state-of-the-art facilities and our dedicated faculty. We strive to create a learning experience that empowers students to reach their full potential and excel in all aspects of life. I invite you to explore our website and learn more about our vibrant school community. Together, let’s work towards a brighter future for every student."
           </p>
         </div>
       </div>

@@ -17,8 +17,8 @@ function Main3() {
                     <div className=" flex flex-col   justify-center">
 
 
-                        <h1 className='fw-bold text-2xl lg:text-4xl  mb-4'>Springdale Public School</h1>
-                        <p className='text-lg lg:text-2xl '>  Springdale Public School offers a rich and diverse educational experience that goes beyond the classroom. Our campus is designed to support a wide range of activities and interests, ensuring that every student has the opportunity to explore and excel.
+                        <h1 className='fw-bold text-2xl lg:text-4xl  mb-4'>Viswa Public School</h1>
+                        <p className='text-lg lg:text-2xl '>  Viswa Public School offers a rich and diverse educational experience that goes beyond the classroom. Our campus is designed to support a wide range of activities and interests, ensuring that every student has the opportunity to explore and excel.
 
                         </p>
                         <span>
