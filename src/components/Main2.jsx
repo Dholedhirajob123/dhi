@@ -27,7 +27,7 @@ function Main2() {
           </div>
           <div className="lg:mt-0 mt-5 flex justify-center items-center">
             <a href="https://www.wolverhampton.gov.uk/sites/default/files/2023-01/Job%20ref%203-2023%20SDP%20-%20Recruitment%20brochure.pdf" download="broucher.pdf">
-              <img src="https://cmsv2-assets.apptegy.net/uploads/2594/file/722701/2de68b87-7fd9-4a78-bac1-d10966b2ffaf.jpeg" className='lg:w-full rounded-lg' alt="Brochure" />
+              <img src="https://images.unsplash.com/photo-1462536943532-57a629f6cc60?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className='lg:w-full rounded-lg' alt="Brochure" />
             </a>
           </div>
         </div>

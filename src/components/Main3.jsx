@@ -29,7 +29,7 @@ function Main3() {
 
                     <div className="hidden lg:flex justify-center">
 
-                        <img src="https://cmsv2-assets.apptegy.net/uploads/2594/file/714224/ce75a941-5217-490b-8695-fd089bac939c.jpeg" alt="" className='shadow-lg  rounded-4 w-[700px] h-[400px]' />
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
 
                     </div>
                     </div>

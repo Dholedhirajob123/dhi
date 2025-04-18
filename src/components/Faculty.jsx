@@ -4,7 +4,7 @@ const aboutData = [
   {
     name: "John Doe",
     description: "Principal",
-    image: "https://studentaffairs.unl.edu/images/news-article/EmilyJohnson.jpg", 
+    image: "https://images.unsplash.com/photo-1664382953518-4a664ab8a8c9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
     quote: "Welcome to our school community! We are dedicated to fostering a nurturing environment that promotes academic and personal growth. Join us in making a positive impact.",
    
   },

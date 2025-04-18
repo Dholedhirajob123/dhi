@@ -1,176 +1,136 @@
-import { Cancel } from '@mui/icons-material';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 
+const imageGroups = {
+  Images: [
+    'https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1494949649109-ecfc3b8c35df?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1554042317-efd62f19bc95?q=80&w=1382&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://plus.unsplash.com/premium_photo-1661714237361-a00d47700c9f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://plus.unsplash.com/premium_photo-1661714230832-357978a0c440?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://plus.unsplash.com/premium_photo-1680807868955-805266ef99f0?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    // Add more images here
+  ],
+  Videos: [
+    'https://www.youtube.com/embed/xziV_K45jZs',
+    'https://www.youtube.com/embed/NA_QWOC4wNk',
+    'https://www.youtube.com/embed/NA_QWOC4wNk',
+  ],
+};
 
-import 'react-lazy-load-image-component/src/effects/blur.css';
-
+// Set app root for accessibility
 Modal.setAppElement('#root');
 
-const Campus = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedVideo, setSelectedVideo] = useState(null);
+const TabbedGallery = () => {
+  const [activeTab, setActiveTab] = useState('Images');
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const campusImages = [
-//  '../assets/pic1.jpg'
-//  '../assets/pic1.jpg'
-//  '../assets/pic1.jpg'
-//  '../assets/pic1.jpg'
-//  '../assets/pic1.jpg'
-//  '../assets/pic1.jpg'
-//  '../assets/pic1.jpg'
-//  '../assets/pic1.jpg'
-//  '../assets/pic1.jpg'
-//  '../assets/pic1.jpg'
-//  '../assets/pic1.jpg'
- 'school-website-Task/src/assets/aaron-burden-QJDzYT_K8Xg-unsplash.jpg',
-  ];
-
-  const campusVideos = [
-    'https://youtu.be/xziV_K45jZs?si=3P_Dc8X5AmlT6DlS',
-    'https://www.youtube.com/NA_QWOC4wNk?si=B5zzR4kuhZmN4jPi',
-    'https://www.youtube.com/NA_QWOC4wNk?si=B5zzR4kuhZmN4jPi',
-  ];
-
-  const openImageModal = (imageUrl, index) => {
-    setSelectedImage(imageUrl);
+  const openModal = (index) => {
     setCurrentImageIndex(index);
+    setModalIsOpen(true);
   };
 
-  const closeImageModal = () => {
-    setSelectedImage(null);
-  };
-
-  const openVideoModal = (videoUrl) => {
-    setSelectedVideo(videoUrl);
-  };
-
-  const closeVideoModal = () => {
-    setSelectedVideo(null);
+  const closeModal = () => {
+    setModalIsOpen(false);
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % campusImages.length);
-    setSelectedImage(campusImages[(currentImageIndex + 1) % campusImages.length]);
+    setCurrentImageIndex((prev) =>
+      (prev + 1) % imageGroups.Images.length
+    );
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + campusImages.length) % campusImages.length);
-    setSelectedImage(campusImages[(currentImageIndex - 1 + campusImages.length) % campusImages.length]);
+    setCurrentImageIndex((prev) =>
+      (prev - 1 + imageGroups.Images.length) % imageGroups.Images.length
+    );
   };
 
   return (
-    <div className="bg-gray-100 py-16">
-      <div className="container mx-auto text-center px-4">
-       
+    <div className="p-6 max-w-6xl mx-auto">
+      <h2 className="text-3xl font-bold text-center mb-6">Gallery</h2>
 
-        <section>
-          <h2 className="text-3xl lg:text-5xl font-bold mb-8 text-indigo-700">Campus Showcase</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-            {campusImages.map((imageUrl, index) => (
-              <div
-                key={index}
-                className="relative overflow-hidden bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-                onClick={() => openImageModal(imageUrl)}
-              >
-                <img
-                  src={imageUrl}
-                  alt={`Campus Image ${index + 1}`}
-                  className="w-full h-40 object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-black opacity-50"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-white font-semibold">Click to enlarge</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-        <section className="mb-16">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-8 text-indigo-700">Campus Video Showcase</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {campusVideos.map((videoUrl, index) => (
-              <div
-                key={index}
-                className="relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer transition-transform transform hover:scale-105 "
-                onClick={() => openVideoModal(videoUrl)}
-              >
-                <div className="h-[300px]">
-                  <iframe
-                    src={videoUrl}
-                    title={`Campus Video ${index + 1}`}
-                    className="w-full h-full object-cover rounded-lg transition-transform transform hover:scale-105"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="absolute inset-0 bg-black opacity-0 hover:opacity-60 transition-opacity duration-300"></div>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white font-bold text-lg">▶ Click to play</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-
-
-        <Modal
-          isOpen={!!selectedImage}
-          onRequestClose={closeImageModal}
-          contentLabel="Enlarged Image"
-          className="modal flex flex-col items-center bg-dark bg-opacity-25 rounded-lg justify-center"
-          overlayClassName="overlay fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center"
-        >
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="relative">
-              <img
-                src={selectedImage}
-                alt="Enlarged Campus Image"
-                className="max-h-full lg:w-[1000px] lg:h-[600px] w-[400px] h-[300px] object-cover rounded-xl shadow-lg"
-              />
-              <Cancel
-                onClick={closeImageModal}
-                className="absolute top-4 right-4 cursor-pointer text-white text-3xl bg-gray-700 bg-opacity-75 rounded-full p-1"
-                style={{ fontSize: '2rem' }}
-              />
-              <button onClick={prevImage} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2">
-                &#10094;
-              </button>
-              <button onClick={nextImage} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2">
-                &#10095;
-              </button>
-            </div>
-          </div>
-        </Modal>
-
-
-        <Modal
-          isOpen={!!selectedVideo}
-          onRequestClose={closeVideoModal}
-          contentLabel="Video Player"
-          className="modal flex flex-col items-center bg-dark bg-opacity-25 rounded-lg justify-center"
-          overlayClassName="overlay fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center"
-        >
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="relative">
-              <iframe
-                src={selectedVideo}
-                title="Campus Video"
-                className="lg:w-[1000px] lg:h-[600px] w-[400px] h-[300px] rounded-xl"
-                allowFullScreen
-              ></iframe>
-              <Cancel
-                onClick={closeVideoModal}
-                className="absolute top-4 right-4 cursor-pointer text-white text-3xl bg-gray-700 bg-opacity-75 rounded-full p-1"
-                style={{ fontSize: '2rem' }}
-              />
-            </div>
-          </div>
-        </Modal>
+      {/* Tabs */}
+      <div className="flex justify-center gap-4 mb-8">
+        {Object.keys(imageGroups).map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`px-4 py-2 rounded-lg transition-all font-semibold ${
+              activeTab === tab
+                ? 'bg-indigo-600 text-white shadow-md'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
       </div>
+
+      {/* Grid Content */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {activeTab === 'Images' &&
+          imageGroups.Images.map((src, index) => (
+            <div
+              key={index}
+              className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
+              onClick={() => openModal(index)}
+            >
+              <img
+                src={src}
+                alt={`Image ${index + 1}`}
+                className="w-full h-48 object-cover object-center"
+              />
+            </div>
+          ))}
+
+        {activeTab === 'Videos' &&
+          imageGroups.Videos.map((videoUrl, index) => (
+            <div
+              key={index}
+              className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all"
+            >
+              <iframe
+                src={videoUrl}
+                title={`Video ${index + 1}`}
+                allowFullScreen
+                className="w-full h-48 rounded-lg"
+              ></iframe>
+            </div>
+          ))}
+      </div>
+
+      {/* Modal for enlarged image with slider */}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Image Modal"
+        overlayClassName="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center"
+        className="relative bg-white rounded-lg shadow-xl p-4 w-full max-w-4xl mx-auto outline-none"
+      >
+        <button
+          onClick={closeModal}
+          className="absolute top-2 right-2 text-xl bg-gray-200 hover:bg-gray-300 rounded-full p-2"
+        >
+          ✕
+        </button>
+
+        <div className="flex items-center justify-between">
+          <button onClick={prevImage} className="text-3xl p-2 hover:text-indigo-600">‹</button>
+          <img
+            src={imageGroups.Images[currentImageIndex]}
+            alt="Enlarged"
+            className="max-h-[70vh] mx-auto rounded-lg"
+          />
+          <button onClick={nextImage} className="text-3xl p-2 hover:text-indigo-600">›</button>
+        </div>
+      </Modal>
     </div>
   );
-}
+};
 
-export default Campus;
+export default TabbedGallery;

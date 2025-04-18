@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState  } from 'react'
 
 import { Link } from 'react-router-dom'
-import { Menu } from '@mui/icons-material';
+import {  Menu } from '@mui/icons-material';
+
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +10,8 @@ function Navbar() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+
 
 
   return (
@@ -58,7 +61,9 @@ function Navbar() {
                 <Link to="/campus" className="nav-item me-3">
                   <a className="nav-link" href="#">GALLERY</a>
                 </Link>
-                
+               
+
+
            
                 <li className="nav-item  me-3">
                   <button className='btn  shadow btn-primary'>

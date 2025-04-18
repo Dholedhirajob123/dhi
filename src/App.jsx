@@ -22,6 +22,10 @@ import Curriculum from './components/Curriculum';
 import Faculty from './components/Faculty';
 import Students from './components/Students';
 
+
+
+
+
 function App() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -176,6 +180,8 @@ function App() {
             <KeyboardArrowUp />
           </button>
         )}
+
+       
         <Footer />
       </div>
     </Router>
