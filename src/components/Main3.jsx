@@ -1,49 +1,44 @@
-import React from 'react'
+import React from 'react';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import campusImg from '../assets/img10 (1).jpg';
 function Main3() {
-    return (
-        <div className="parallax-container">
-            <div
-                className="parallax-bg   d-flex justify-content-center align-items-center  bg-center bg-no-repeat "
-                style={{
-                    backgroundImage: "url('https://wehco.media.clients.ellingtoncms.com/img/photos/2015/09/09/72682081_Springdale-High-File_t800.jpg')",
-                }}
-            ></div>
-            <div className="container-fluid bg-dark position-absolute text-light d-flex justify-content-center align-items-center h-100 w-100 bg-opacity-25 ">
-                <div className=' container '>
-                    <div className='w-100 h-100 grid  grid-cols-1 lg:grid-cols-2 '>
+  const { t } = useTranslation();
 
-                    <div className=" flex flex-col   justify-center">
+  return (
+    <div className="relative h-screen overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `bgbackground.jpg` }}
+      ></div>
 
-
-                        <h1 className='fw-bold text-2xl lg:text-4xl  mb-4'>Viswa Public School</h1>
-                        <p className='text-lg lg:text-2xl '>  Viswa Public School offers a rich and diverse educational experience that goes beyond the classroom. Our campus is designed to support a wide range of activities and interests, ensuring that every student has the opportunity to explore and excel.
-
-                        </p>
-                        <span>
-
-                        <Link to="/college" className='btn shadow-lg  mt-5 fw-bold rounded-0 btn-primary'>Go Explore <ArrowRightAltIcon /> </Link>
-                        </span>
-                    </div>
-
-                    <div className="hidden lg:flex justify-center">
-
-                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-
-                    </div>
-                    </div>
-                </div>
+      <div className="absolute inset-0 bg-black bg-opacity-50 z-10 flex items-center justify-center text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="flex flex-col justify-center text-center lg:text-left">
+              <h1 className="text-3xl lg:text-5xl font-bold mb-4">{t('title')}</h1>
+              <p className="text-lg lg:text-2xl mb-6">{t('description')}</p>
+              <Link
+                to="/college"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 font-semibold rounded shadow"
+              >
+                {t('button')} <ArrowRightAltIcon />
+              </Link>
             </div>
+
+            <div className="hidden lg:flex justify-center">
+              <img
+ src={campusImg}
+                 alt="School campus"
+                className="rounded-lg shadow-lg max-h-[70vh]"
+              />
+            </div>
+          </div>
         </div>
-
-
-
-
-
-
-
-    )
+      </div>
+    </div>
+  );
 }
 
-export default Main3
+export default Main3;

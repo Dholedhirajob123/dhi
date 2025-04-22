@@ -1,35 +1,38 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Curriculum = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white py-20">
       <div className="container mx-auto px-6">
         <h1 className="text-5xl font-bold text-center mb-16 text-blue-900">
-          Our Curriculum
+          {t('tit')}
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {[
             {
-              title: "Primary (Grades 1-5)",
-              subjects: ["English", "Mathematics", "Science", "Social Studies", "Art", "Physical Education"],
+              tit: t('primary.tit'),
+              subjects: t('primary.subjects', { returnObjects: true }),
               color: "bg-green-500"
             },
             {
-              title: "Secondary (Grades 6-10)",
-              subjects: ["English", "Mathematics", "Science (Physics, Chemistry, Biology)", "Social Studies", "Computer Science", "Physical Education", "Art"],
+              tit: t('secondary.tit'),
+              subjects: t('secondary.subjects', { returnObjects: true }),
               color: "bg-blue-500"
             },
             {
-              title: "Senior Secondary (Grades 11-12)",
+              title: t('senior.tit'),
               streams: [
                 {
-                  name: "Science Stream",
-                  subjects: ["Physics", "Chemistry", "Biology", "Mathematics", "Computer Science", "English"]
+                  name: t('senior.science.name'),
+                  subjects: t('senior.science.subjects', { returnObjects: true })
                 },
                 {
-                  name: "Commerce Stream",
-                  subjects: ["Accountancy", "Business Studies", "Economics", "Mathematics", "English"]
+                  name: t('senior.commerce.name'),
+                  subjects: t('senior.commerce.subjects', { returnObjects: true })
                 }
               ],
               color: "bg-purple-500"
@@ -37,7 +40,7 @@ const Curriculum = () => {
           ].map((grade, index) => (
             <div key={index} className="bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               <div className={`${grade.color} py-4 px-6`}>
-                <h3 className="text-2xl font-bold text-white">{grade.title}</h3>
+                <h3 className="text-2xl font-bold text-white">{grade.tit}</h3>
               </div>
               <div className="p-6">
                 {grade.subjects ? (
@@ -72,20 +75,20 @@ const Curriculum = () => {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
           {[
             {
-              title: "Teaching Methodologies",
-              description: "We use a blend of traditional and modern teaching techniques to cater to different learning styles.",
+              tit: t('methodology.heading'),
+              description: t('methodology.description'),
               icon: "📚"
             },
             {
-              title: "Educational Resources",
-              description: "Digital classrooms, interactive learning modules, and access to online educational platforms.",
+              tit: t('resources.heading'),
+              description: t('resources.description'),
               icon: "💻"
             }
           ].map((item, index) => (
             <div key={index} className="bg-white rounded-xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               <div className="flex items-center mb-4">
                 <span className="text-4xl mr-4">{item.icon}</span>
-                <h3 className="text-2xl font-bold text-blue-800">{item.title}</h3>
+                <h3 className="text-2xl font-bold text-blue-800">{item.tit}</h3>
               </div>
               <p className="text-gray-600 leading-relaxed">{item.description}</p>
             </div>

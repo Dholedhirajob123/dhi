@@ -1,69 +1,72 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const eventsData = [
   {
-    category: "Primary Events",
+    category: "first_events",
     events: [
       {
-        title: "Math Wizard Competition",
+        title: "math_wizard_competition",
         date: "2024-08-15",
-        description: "An exciting competition where students showcase their mathematical skills through fun puzzles and challenges."
+        description: "math_wizard_competition_desc"
       },
       {
-        title: "Art Fair",
+        title: "art_fair",
         date: "2024-09-10",
-        description: "A creative event where students display their artwork, including paintings, drawings, and crafts."
+        description: "art_fair_desc"
       },
       {
-        title: "Physical Fitness Week",
+        title: "physical_fitness_week",
         date: "2024-10-05",
-        description: "A week dedicated to various physical activities and sports to promote health and fitness among students."
+        description: "physical_fitness_week_desc"
       }
     ]
   },
   {
-    category: "Secondary Events",
+    category: "second_events",
     events: [
       {
-        title: "Science Fair",
+        title: "science_fair",
         date: "2024-11-20",
-        description: "A fair where students present their science projects and experiments, showcasing their understanding and innovation."
+        description: "science_fair_desc"
       },
       {
-        title: "Computer Science Quiz",
+        title: "computer_science_quiz",
         date: "2024-12-15",
-        description: "A quiz competition focused on computer science topics, including programming, algorithms, and tech trivia."
+        description: "computer_science_quiz_desc"
       },
       {
-        title: "Social Studies Debate",
+        title: "social_studies_debate",
         date: "2025-01-10",
-        description: "A debate competition where students discuss and argue on various social studies topics, enhancing their public speaking and critical thinking skills."
+        description: "social_studies_debate_desc"
       }
     ]
   },
   {
-    category: "Senior Secondary Events",
+    category: "senior_secondary_events",
     events: [
       {
-        title: "Science Olympiad",
+        title: "science_olympiad",
         date: "2025-02-25",
-        description: "An advanced competition covering physics, chemistry, and biology, aimed at encouraging scientific inquiry and excellence."
+        description: "science_olympiad_desc"
       },
       {
-        title: "Commerce Fair",
+        title: "commerce_fair",
         date: "2025-03-15",
-        description: "A fair showcasing projects and presentations related to accountancy, business studies, and economics."
+        description: "commerce_fair_desc"
       },
       {
-        title: "Mathematics Challenge",
+        title: "mathematics_challenge",
         date: "2025-04-20",
-        description: "A challenging event featuring advanced mathematical problems and puzzles designed to test and improve students' mathematical skills."
+        description: "mathematics_challenge_desc"
       }
     ]
   }
 ];
+
 const Events = () => {
-  const [activeCategory, setActiveCategory] = useState('Primary Events');
+  const { t, i18n } = useTranslation(); // Access translations and i18n instance
+  const [activeCategory, setActiveCategory] = useState('first_events');
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
@@ -71,39 +74,42 @@ const Events = () => {
 
   const renderEvents = () => {
     const categoryData = eventsData.find((data) => data.category === activeCategory);
-    return categoryData ? (
+    if (!categoryData) return <p className="text-center text-gray-600">{t('no_events_found')}</p>;
+
+    return (
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categoryData.events.map((event, index) => (
           <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
             <div className="p-6">
-              <h4 className="text-xl font-bold mb-2 text-indigo-700">{event.title}</h4>
-              <p className="text-gray-600 mb-3 text-sm">{new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
-              <p className="text-gray-700">{event.description}</p>
+              <h4 className="text-xl font-bold mb-2 text-indigo-700">{t(event.title, { defaultValue: event.title })}</h4>
+              <p className="text-gray-600 mb-3 text-sm">
+                {new Date(event.date).toLocaleDateString(i18n.language, {
+                  weekday: 'long',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </p>
+              <p className="text-gray-700">{t(event.description, { defaultValue: event.description })}</p>
             </div>
-            
           </div>
         ))}
       </div>
-    ) : (
-      <p className="text-center text-gray-600">No events found for this category.</p>
     );
   };
 
   return (
-    <div className="container mx-auto px-4 py-16 ">
-      <h2 className="text-4xl font-bold text-center mb-12 text-indigo-900">Upcoming Events</h2>
+    <div className="container mx-auto px-4 py-16">
+      <h2 className="text-4xl font-bold text-center mb-12 text-indigo-900">{t('top_events')}</h2>
       <div className="flex flex-wrap justify-center gap-4 mb-12">
         {eventsData.map((data, index) => (
           <button
             key={index}
-            className={`px-6 py-3 rounded-full transition-all duration-300 ${
-              activeCategory === data.category 
-                ? 'bg-indigo-700 text-white font-bold shadow-lg' 
-                : 'bg-white text-indigo-700 hover:bg-indigo-100'
-            }`}
+            className={`px-6 py-3 rounded-full transition-all duration-300 ${activeCategory === data.category ? 'bg-indigo-700 text-white font-bold shadow-lg' : 'bg-white text-indigo-700 hover:bg-indigo-100'}`}
             onClick={() => handleCategoryClick(data.category)}
+            aria-label={t(`view_${data.category}`)}
           >
-            {data.category}
+            {t(data.category, { defaultValue: data.category })}
           </button>
         ))}
       </div>
@@ -111,4 +117,5 @@ const Events = () => {
     </div>
   );
 };
+
 export default Events;

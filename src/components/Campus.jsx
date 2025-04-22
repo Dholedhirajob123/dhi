@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import { useTranslation } from 'react-i18next';
+import img1 from '../assets/img1.jpg';
+import img2 from '../assets/img2.jpg';
+import img3 from '../assets/img3.jpg';
+import img4 from '../assets/img4.jpg';
+import img5 from '../assets/img5.jpg';
+import img6 from '../assets/img10 (1).jpg';
+import img7 from '../assets/img10 (2).jpg';
+import img8 from '../assets/img10 (3).jpg';
+import img9 from '../assets/img10 (4).jpg';
 
+// Your image and video data
 const imageGroups = {
-  Images: [
-    'https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1494949649109-ecfc3b8c35df?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1554042317-efd62f19bc95?q=80&w=1382&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://plus.unsplash.com/premium_photo-1661714237361-a00d47700c9f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://plus.unsplash.com/premium_photo-1661714230832-357978a0c440?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://plus.unsplash.com/premium_photo-1680807868955-805266ef99f0?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    // Add more images here
-  ],
+  Images: [img1, img2, img3, img4, img5,img6, img7, img8, img9],
   Videos: [
     'https://www.youtube.com/embed/xziV_K45jZs',
     'https://www.youtube.com/embed/NA_QWOC4wNk',
     'https://www.youtube.com/embed/NA_QWOC4wNk',
+    // more videos...
   ],
 };
 
@@ -25,6 +26,7 @@ const imageGroups = {
 Modal.setAppElement('#root');
 
 const TabbedGallery = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('Images');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -39,20 +41,16 @@ const TabbedGallery = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) =>
-      (prev + 1) % imageGroups.Images.length
-    );
+    setCurrentImageIndex((prev) => (prev + 1) % imageGroups.Images.length);
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) =>
-      (prev - 1 + imageGroups.Images.length) % imageGroups.Images.length
-    );
+    setCurrentImageIndex((prev) => (prev - 1 + imageGroups.Images.length) % imageGroups.Images.length);
   };
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-6">Gallery</h2>
+      <h2 className="text-3xl font-bold text-center mb-6">{t('titl')}</h2>
 
       {/* Tabs */}
       <div className="flex justify-center gap-4 mb-8">
@@ -66,7 +64,7 @@ const TabbedGallery = () => {
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
-            {tab}
+            {t(`tabs.${tab}`)}
           </button>
         ))}
       </div>
@@ -108,7 +106,7 @@ const TabbedGallery = () => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        contentLabel="Image Modal"
+        contentLabel={t('modalLabel')}
         overlayClassName="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center"
         className="relative bg-white rounded-lg shadow-xl p-4 w-full max-w-4xl mx-auto outline-none"
       >
